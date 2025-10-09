@@ -12,7 +12,7 @@ public class Ej8 {
 	System.out.println("De que numero quiere calcular su factorial");	
 	int num = sc.nextInt();	
 	
-	for (int i =1; i<=num; i++) {
+	for (int i =num; i>=1; i--) {
 		 fact *=i;
 		}
 		System.out.println("El factorial de " +num +" es " +fact);
