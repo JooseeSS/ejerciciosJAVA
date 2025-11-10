@@ -1,49 +1,80 @@
 package com;
-import java.util.*;
 
+import java.util.Arrays;
+
+/**
+ * 
+Ejercicio 8: sinRepetidos(t): elimina duplicados y devuelve nuevo array.
+Implementar la función int[] sinRepetidos(int t[]) que construye y devuelve una tabla con los elementos de t eliminando los repetidos. El tamaño del nuevo array debe ajustarse a los elementos únicos.
+
+Indicaciones para resolverlo
+Crea int[] res con 1 elemento: copia t[0].
+Para cada t[i] desde i=1, comprueba si ya está en res (bucle o función contiene).
+Si no está, inserta con función insertar(res, valor) que haga Arrays.copyOf(res, res.length+1) y ponga al final.
+ */
 public class Ej8 {
 
-	   public static int[] sinRepetidos(int[] t) {
-	        if (t.length == 0) {
-	            return new int[0]; // si el array está vacío, devolvemos uno vacío
-	        }
-
-	        // Creamos el resultado con el primer elemento
-	        int[] res = { t[0] };
-
-	        // Recorremos el resto de elementos
-	        for (int i = 1; i < t.length; i++) {
-	            if (!contiene(res, t[i])) {
-	                res = insertar(res, t[i]);
-	            }
-	        }
-
-	        return res;
-	    }
-
-	    // Comprueba si un array contiene un valor
-	    private static boolean contiene(int[] arr, int valor) {
-	        for (int n : arr) {
-	            if (n == valor) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    }
-
-	    // Inserta un nuevo valor al final del array (aumentando su tamaño)
-	    private static int[] insertar(int[] arr, int valor) {
-	        int[] nuevo = Arrays.copyOf(arr, arr.length + 1);
-	        nuevo[nuevo.length - 1] = valor;
-	        return nuevo;
-	    }
-
-	    // Ejemplo de uso
-	    public static void main(String[] args) {
-	        int[] t = { 3, 5, 3, 2, 5, 7, 2, 8 };
-	        int[] resultado = sinRepetidos(t);
-
-	        System.out.println("Original: " + Arrays.toString(t));
-	        System.out.println("Sin repetidos: " + Arrays.toString(resultado));
-	    }
+	public static void main(String [] args) {
+		int [] tabla =  {1,3,5,5, 7,9,9,9,5};
+		
+		
+		System.out.println(Arrays.toString(sinRepetidos(tabla)));
+	
 	}
+	
+	/*****
+	 * ##################
+	 * #        FORMA 1
+	 * #############
+	 */
+	
+	
+	/**
+	 * 
+	 * @param t
+	 * @return
+	 */
+	public static int[] sinRepetidos(int t[]) {
+		//Crea int[] res con 1 elemento: copia t[0].
+		/** int[] res = new int[1];
+		   res[0] = t[0];
+		*/
+		int [] res = Arrays.copyOf(t, 1);
+		//Para cada t[i] desde i=1, comprueba si ya está en res (bucle o función contiene).
+		for(int i=0; i<t.length; i++) {
+			if(!contiene(res, t[i])){
+				res = insertar( res, t[i]);
+			}
+		}
+		return res;
+	}
+	/**
+	 * Inserta un nuevo elemento en la tabla
+	 * @param tabla
+	 * @param valor
+	 * @return
+	 */
+	public static int[] insertar(int [] tabla, int valor) {
+		int[] nuevaTabla = Arrays.copyOf(tabla, tabla.length+1);
+		nuevaTabla[nuevaTabla.length-1] = valor;
+		return nuevaTabla;
+	}
+	
+	/**
+	 * Función que me permite comprobar si un elemento se encuentra en la tabla
+	 * @param tabla
+	 * @param valor
+	 * @return
+	 */
+	public static boolean contiene(int [] tabla, int valor) {
+		boolean ret = false;
+		for(int i = 0; i< tabla.length; i++) {
+			if(tabla[i]==valor) {
+				return true;
+			}
+		}
+		return ret;
+	}
+	
+	
+}

@@ -44,7 +44,7 @@ volver a realizar una ordenación.
 	            } else if (a[ita] <= b[itb]) { // Comparar y copiar el menor
 	                c[itc++] = a[ita++];
 	            } else {
-	                c[itc++] = b[itb++];
+	               c[itc++] = b[itb++];
 	            }
 	        }
 	        
