@@ -1,0 +1,67 @@
+package es.calculadora;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class CalculadoraTest {
+
+    private Calculadora cal;
+
+    @BeforeEach
+    void setUp() throws Exception {
+        
+        cal = new Calculadora(10, 2);
+    }
+
+    @Test
+    void testSumar() {
+       
+        int resultado = cal.sumar();
+        assertEquals(12, resultado, "La suma debería ser 12");
+    }
+
+    @Test
+    void testRestar() {
+        
+        int resultado = cal.restar();
+        assertEquals(8, resultado, "La resta debería ser 8");
+    }
+
+    @Test
+    void testMultiplicar() {
+      
+        int resultado = cal.multiplicar();
+        assertEquals(20, resultado, "La multiplicación debería ser 20");
+    }
+
+    @Test
+    void testDividir() {
+        
+        double resultado = cal.dividir();
+        assertEquals(5.0, resultado, "La división debería ser 5.0");
+    }
+
+    @Test
+    void testDividirConDecimales() {
+       
+        cal.setNum1(5);
+        cal.setNum2(2);
+        
+       
+        double resultado = cal.dividir();
+        assertEquals(2.5, resultado, "La división debería devolver decimales (2.5)");
+    }
+
+    @Test
+    void testDividirPorCero() {
+       
+        cal.setNum2(0);
+        
+      
+        double resultado = cal.dividir();
+        assertEquals(0.0, resultado, "La división por cero debería devolver 0.0 según tu lógica");
+    }
+
+}

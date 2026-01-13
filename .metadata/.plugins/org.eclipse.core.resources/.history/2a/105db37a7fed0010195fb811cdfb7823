@@ -1,0 +1,48 @@
+package es.calculadora;
+
+public class Calculadora {
+private int num1;
+private int num2;
+public Calculadora(int num1, int num2) {
+	super();
+	this.num1 = num1;
+	this.num2 = num2;
+}
+public int getNum1() {
+	return num1;
+}
+public void setNum1(int num1) {
+	this.num1 = num1;
+}
+public int getNum2() {
+	return num2;
+}
+public void setNum2(int num2) {
+	this.num2 = num2;
+}
+
+
+		public int sumar() {
+		    return this.num1 + this.num2;
+		}
+		
+		public int restar() {
+		    return this.num1 - this.num2;
+		}
+		
+		public int multiplicar() {
+		    return this.num1 * this.num2;
+		}
+		
+		
+		public double dividir() {
+		    
+		    try {
+		    	return (double) this.num1 / this.num2;
+			} catch (Exception e) {
+				System.err.println("Error: No se puede dividir por cero. Se devolverá 0.");
+		        return 0; 
+			}
+		}
+
+}
