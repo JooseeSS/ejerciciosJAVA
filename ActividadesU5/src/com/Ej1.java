@@ -10,16 +10,8 @@ introducido.
 		Scanner sc = new Scanner(System.in);	
 
 double[] numeros = new double[5];
-
-for (int i = 0; i <5; i++) {
-	System.out.println("Dime un numero");
-	numeros[i]=sc.nextDouble();
-}
-System.out.println("Estos son los numeros que has introducido");
-
-for (int i = 0; i < numeros.length; i++) {
-	System.out.println(numeros[i]);
-}
+double [] numeros2= {2,2};
+int [][] paresImpares={ {6,4},{5}};
 	}
 
 }
