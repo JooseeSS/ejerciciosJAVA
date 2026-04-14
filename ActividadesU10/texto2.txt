@@ -1,0 +1,3 @@
+Hola mundo
+Este es al archivo original
+Adios
